@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 129ea3052e020e941801f7f40a667304
+  productGUID: 24871a62cde1a9c4a932e1e923d06d5f
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: NERDLab
   productName: AMSR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -302,7 +302,7 @@ PlayerSettings:
     m_Enabled: 0
     m_Devices: []
   - m_BuildTarget: Standalone
-    m_Enabled: 0
+    m_Enabled: 1
     m_Devices:
     - OpenVR
   - m_BuildTarget: Tizen
