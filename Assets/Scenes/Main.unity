@@ -516,6 +516,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 676397066}
+    - target: {fileID: 82937685910232496, guid: aa167efad8d2ec64ab02af3611b00822,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 84e60d3809288be49a50834596aae287, type: 3}
+    - target: {fileID: 82937685910232496, guid: aa167efad8d2ec64ab02af3611b00822,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82937685910232496, guid: aa167efad8d2ec64ab02af3611b00822,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa167efad8d2ec64ab02af3611b00822, type: 2}
   m_IsPrefabAsset: 0
@@ -659,6 +674,7 @@ GameObject:
   - component: {fileID: 676397067}
   - component: {fileID: 676397071}
   - component: {fileID: 676397072}
+  - component: {fileID: 676397073}
   m_Layer: 0
   m_Name: Listener
   m_TagString: Untagged
@@ -740,7 +756,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676397066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6115d688c6ee9b4dbd36056c6eb6021, type: 3}
   m_Name: 
@@ -761,6 +777,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &676397073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676397066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313bba248ceea5945adda064067ea431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1059657265
 GameObject:
   m_ObjectHideFlags: 0
