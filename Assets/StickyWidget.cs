@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StickyWidget : MonoBehaviour {
-    private bool attached = false;
-    private GameObject attachedObject;
+    public bool attached = false;
+    public GameObject attachedObject;
     private bool xAxisEnabled = false;
     private bool zAxisEnabled = false;
     private bool orbitEnabled = false;
@@ -14,7 +14,8 @@ public class StickyWidget : MonoBehaviour {
     {
         BackAndForth,
         OrbitRight,
-        OrbitLeft
+        OrbitLeft,
+        Stationary
     }
     public AutoMovementType movementType;
 
@@ -68,6 +69,12 @@ public class StickyWidget : MonoBehaviour {
                 if (attachedObject.GetComponent<SphereControl>())
                 {
                     attachedObject.GetComponent<SphereControl>().SetMovement(SphereControl.AutoMovementType.BackAndForth);
+                }
+                break;
+            case AutoMovementType.Stationary:
+                if (attachedObject.GetComponent<SphereControl>())
+                {
+                    attachedObject.GetComponent<SphereControl>().SetMovement(SphereControl.AutoMovementType.Stationary);
                 }
                 break;
         }

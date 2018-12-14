@@ -6,11 +6,7 @@ public class SphereControl : MonoBehaviour {
 
     public float distanceToTravel;
     public float radius;
-//    private bool backAndForthEnabled = true;
     private bool movementEnabled = false;
-    //    private bool xAxisEnabled = false;
-    //    private bool zAxisEnabled = false;
-    //    private bool orbitEnabled = false;
     private bool didChangeMovementState = false;
     private Vector3 startPosition;
     private Vector3 endPosition;
@@ -24,7 +20,8 @@ public class SphereControl : MonoBehaviour {
     {
         BackAndForth,
         OrbitRight,
-        OrbitLeft
+        OrbitLeft,
+        Stationary
     }
     public AutoMovementType movementType;
 
@@ -38,12 +35,6 @@ public class SphereControl : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-/*        if(Input.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger))
-           
-        {
-            Debug.Log("Trigger touched");
-        }
-  */
         if (movementEnabled)
         {
             switch (movementType)
@@ -70,6 +61,7 @@ public class SphereControl : MonoBehaviour {
                         startPosition = transform.position;
                     }
                     break;
+
             }
         }
     }
@@ -87,21 +79,15 @@ public class SphereControl : MonoBehaviour {
                 startPosition = transform.position + (transform.parent.transform.forward * .5f);
                 transform.position = (transform.position - startPosition).normalized * radius + startPosition;
                 break;
-
- //              axis = new Vector3(transform.parent.rotation.x, transform.parent.rotation.y, transform.parent.rotation.z);
-//                startPosition = transform.position + (transform.parent.transform.forward * .5f);
-//                transform.position = (transform.position - startPosition).normalized * radius + startPosition;
-
-//                startPosition = transform.position;
-  //              startPosition.z = transform.position.z + .5f;
-//                transform.position = (transform.position - startPosition).normalized * radius + startPosition;
-//                break;
             case AutoMovementType.BackAndForth:
                 Debug.Log("Setting X Axis Movement");
                 //              startPosition.x = transform.position.x;
                 //              endPosition.x = transform.position.x + distanceToTravel;
                 startPosition = transform.position;
                 endPosition = transform.position + (transform.parent.transform.forward * distanceToTravel);
+                break;
+            case AutoMovementType.Stationary:
+                movementEnabled = false;
                 break;
         }
         movementEnabled = true;
@@ -116,12 +102,6 @@ public class SphereControl : MonoBehaviour {
             didChangeMovementState = true;
         }
 
-/*        if (GetComponent<AutoBackAndForth>().enabled)
-        {
-            backAndForthEnabled = true;
-            GetComponent<AutoBackAndForth>().enabled = false;
-        }
-  */
     }
 
     public void EndHover()
