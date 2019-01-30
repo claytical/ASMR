@@ -2104,6 +2104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 847581453}
+  - component: {fileID: 847581454}
   m_Layer: 0
   m_Name: Audio Holder
   m_TagString: Untagged
@@ -2118,7 +2119,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847581452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -1}
+  m_LocalPosition: {x: 0, y: 1.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1999818225}
@@ -2126,6 +2127,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &847581454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847581452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fdcf3bf94051748ba82959dceb211c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbContainers:
+  - {fileID: 1999818224}
+  - {fileID: 1772804735}
+  orbs: []
+  radius: 1
 --- !u!1001 &863569907
 Prefab:
   m_ObjectHideFlags: 0
@@ -3636,7 +3653,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4063798402259840, guid: 8e284781f5b9cd94787ddfc2720adb87, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.992
+      value: 1.1682
       objectReference: {fileID: 0}
     - target: {fileID: 4063798402259840, guid: 8e284781f5b9cd94787ddfc2720adb87, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3671,6 +3688,19 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 80b2d610b64acdb4eafba0443315d899, type: 3}
+    - target: {fileID: 4544853788808542, guid: 8e284781f5b9cd94787ddfc2720adb87, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544853788808542, guid: 8e284781f5b9cd94787ddfc2720adb87, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23198555415741246, guid: 8e284781f5b9cd94787ddfc2720adb87,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b8f544b941c7bb428acd8964bcf86cb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e284781f5b9cd94787ddfc2720adb87, type: 2}
   m_IsPrefabAsset: 0

@@ -6,6 +6,9 @@ public class SphereControl : MonoBehaviour {
 
     public float distanceToTravel;
     public float radius;
+
+    public GameObject cylinder;
+    private float audioVisualScale = .1f;
     private bool movementEnabled = false;
     private bool didChangeMovementState = false;
     private Vector3 startPosition;
@@ -15,6 +18,16 @@ public class SphereControl : MonoBehaviour {
     private float radiusSpeed;
     private float rotationSpeed;
     private LineRenderer line;
+    public float updateStep = 0.1f;
+    private int sampleDataLength = 256;
+
+    private float currentUpdateTime = 0f;
+    private float currentScale;
+
+    private float clipLoudness;
+    private float[] clipSampleData;
+    private AudioSource audioSource;
+
     [System.Serializable]
     public enum AutoMovementType
     {
@@ -29,11 +42,33 @@ public class SphereControl : MonoBehaviour {
     void Start() {
         radiusSpeed = .5f;
         rotationSpeed = 80f;
-
+        if (GetComponent<AudioSource>())
+        {
+            audioSource = GetComponent<AudioSource>();
+            clipSampleData = new float[sampleDataLength];
+        }
+        currentScale = cylinder.transform.localScale.z;
     }
-
-    // Update is called once per frame
-    void Update() {
+        // Update is called once per frame
+        void Update() {
+            currentUpdateTime += Time.deltaTime;
+            if (currentUpdateTime >= updateStep && audioSource != null)
+            {
+                currentUpdateTime = 0f;
+                bool gotData = audioSource.clip.GetData(clipSampleData, audioSource.timeSamples); //I read 1024 samples, which is about 80 ms on a 44khz stereo clip, beginning at the current sample position of the clip.
+                clipLoudness = 0f;
+                for (int i = 0; i < clipSampleData.Length; i++)
+                {
+                    clipLoudness += Mathf.Abs(clipSampleData[i]);
+                }
+                clipLoudness /= sampleDataLength; //clipLoudness is what you are looking for
+            Vector3 newScale = cylinder.transform.localScale;
+            newScale.x = currentScale + (clipLoudness * audioVisualScale);
+            newScale.z = currentScale + (clipLoudness * audioVisualScale);
+            cylinder.transform.parent = null;
+            cylinder.transform.localScale = newScale;
+            cylinder.transform.parent = transform;
+        }
 
         if (movementEnabled)
         {
