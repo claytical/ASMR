@@ -15,7 +15,8 @@ public class StickyWidget : MonoBehaviour {
         BackAndForth,
         OrbitRight,
         OrbitLeft,
-        Stationary
+        Stationary,
+        OrbitAroundPlayer
     }
     public AutoMovementType movementType;
 
@@ -75,6 +76,12 @@ public class StickyWidget : MonoBehaviour {
                 if (attachedObject.GetComponent<SphereControl>())
                 {
                     attachedObject.GetComponent<SphereControl>().SetMovement(SphereControl.AutoMovementType.Stationary);
+                }
+                break;
+            case AutoMovementType.OrbitAroundPlayer:
+                if (attachedObject.GetComponent<SphereControl>())
+                {
+                    attachedObject.GetComponent<SphereControl>().SetMovement(SphereControl.AutoMovementType.OrbitAroundPlayer);
                 }
                 break;
         }

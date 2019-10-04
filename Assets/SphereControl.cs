@@ -8,6 +8,7 @@ public class SphereControl : MonoBehaviour {
     public float radius;
 
     public GameObject cylinder;
+    public GameObject player;
     private float audioVisualScale = .1f;
     private bool movementEnabled = false;
     private bool didChangeMovementState = false;
@@ -34,7 +35,8 @@ public class SphereControl : MonoBehaviour {
         BackAndForth,
         OrbitRight,
         OrbitLeft,
-        Stationary
+        Stationary,
+        OrbitAroundPlayer
     }
     public AutoMovementType movementType;
 
@@ -96,7 +98,13 @@ public class SphereControl : MonoBehaviour {
                         startPosition = transform.position;
                     }
                     break;
+                case AutoMovementType.OrbitAroundPlayer:
+                    Debug.Log("Orbiting Around Player");
+                    transform.RotateAround(player.transform.position, axis, rotationSpeed * Time.deltaTime);
+                    desiredPosition = (transform.position - player.transform.position).normalized * radius + player.transform.position;
+                    transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime * radiusSpeed);
 
+                    break;
             }
         }
     }
