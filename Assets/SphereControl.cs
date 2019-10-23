@@ -54,7 +54,8 @@ public class SphereControl : MonoBehaviour {
         // Update is called once per frame
         void Update() {
             currentUpdateTime += Time.deltaTime;
-            if (currentUpdateTime >= updateStep && audioSource != null)
+        /*
+        if (currentUpdateTime >= updateStep && audioSource != null)
             {
                 currentUpdateTime = 0f;
                 bool gotData = audioSource.clip.GetData(clipSampleData, audioSource.timeSamples); //I read 1024 samples, which is about 80 ms on a 44khz stereo clip, beginning at the current sample position of the clip.
@@ -71,7 +72,7 @@ public class SphereControl : MonoBehaviour {
             cylinder.transform.localScale = newScale;
             cylinder.transform.parent = transform;
         }
-
+            */
         if (movementEnabled)
         {
             switch (movementType)
