@@ -4,34 +4,42 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Ocean Calm
   m_Shader: {fileID: 4800000, guid: 2306651e5f8f52a478db474477531f82, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs: []
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Cubemap:
+        m_Texture: {fileID: 8900000, guid: ae32678caf33a354e9474460408f21d0, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaveMap:
+        m_Texture: {fileID: 2800000, guid: ad09becc3dc6b2c43ab24168e4eecc93, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _SeaChoppy
-      second: 11.4
-    - first:
-        name: _SeaFreq
-      second: 0.46
-    - first:
-        name: _SeaHeight
-      second: 0.05
-    - first:
-        name: _SeaSpeed
-      second: 0.21
+    - _Distortion: 1
+    - _SeaChoppy: 5.9
+    - _SeaFreq: 0.356
+    - _SeaHeight: 0.079
+    - _SeaSpeed: 0.228
+    - _WaveXSpeed: 0.01
+    - _WaveYSpeed: 0.01
     m_Colors:
-    - first:
-        name: _SkyColor
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _WaterColor
-      second: {r: 0.1, g: 0.19, b: 0.22, a: 1}
+    - _Color: {r: 0.75, g: 0.85648155, b: 1, a: 1}
+    - _SkyColor: {r: 0.46902812, g: 0.59954137, b: 0.6415094, a: 1}
+    - _WaterColor: {r: 0, g: 0.14431015, b: 0.20754719, a: 1}
