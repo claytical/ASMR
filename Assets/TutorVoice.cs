@@ -41,7 +41,7 @@ public class TutorVoice : MonoBehaviour
             if (Time.time > endTime)
             {
                 orbiting = true;
-                GetComponent<UnityStandardAssets.Utility.SmoothFollow>().enabled = false;
+//                GetComponent<UnityStandardAssets.Utility.SmoothFollow>().enabled = false;
                 transform.position = (transform.position - player.position).normalized * radius + player.position;
 
             }
